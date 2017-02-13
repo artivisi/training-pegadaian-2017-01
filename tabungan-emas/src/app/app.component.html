@@ -2,18 +2,12 @@
 <navigation-bar></navigation-bar>
 
 <div class="container-fluid">
-  <div class="row">
-	<div class="col-sm-3 col-md-2 sidebar">
-	  <ul class="nav nav-sidebar">
-		<li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
-		<li><a href="#">Rekening Koran</a></li>
-		<li><a href="#">Jual Emas</a></li>
-		<li><a href="#">Beli Emas</a></li>
-	  </ul>
-	</div>
-	<div class="col-sm-9 col-md-10 col-md-offset-2 main">
-	  <h1>{{title}}</h1>
+	<div class="row">
 
+		<app-sidebar></app-sidebar>
+
+		<div class="col-sm-9 col-md-10 col-md-offset-2 main">
+			<h1>{{title}}</h1>
+		</div>
 	</div>
-  </div>
 </div>
