@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
+import { RekeningModule } from './rekening/rekening.module';
 import { TransaksiModule } from './transaksi/transaksi.module';
 
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { AboutComponent } from './about/about.component';
 
 const routingAplikasi: Routes = [
 	{ path: "about", component: AboutComponent },
-	{ path: "transaksi", redirectTo: "/transaksi", pathMatch: "full"}
+	{ path: "rekening", redirectTo: "/rekening", pathMatch: "full"},
+	{ path: "transaksi", redirectTo: "/transaksi", pathMatch: "full"},
 	{ path: "**", component: WelcomeComponent }
 ];
 
@@ -30,8 +32,9 @@ const routingAplikasi: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-	RouterModule.forRoot(routingAplikasi),
-	TransaksiModule
+	RekeningModule,
+	TransaksiModule,
+	RouterModule.forRoot(routingAplikasi)
   ],
   providers: [],
   bootstrap: [AppComponent]
