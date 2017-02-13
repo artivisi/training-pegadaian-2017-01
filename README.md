@@ -20,6 +20,19 @@ Materi :
 * Flow Device
 * Integrasi OAuth dengan Angular
 
+## Studi Kasus ##
+
+Aplikasi Tabungan Emas.
+
+Daftar fitur:
+
+* Login
+* Saldo
+* Rekening Koran
+* Beli
+* Jual
+* Info Harga
+
 ## Setup Project Angular 2 ##
 
 * Install NodeJS dan NPM
