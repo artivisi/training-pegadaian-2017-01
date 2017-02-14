@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
+
 import { RekeningModule } from './rekening/rekening.module';
 import { TransaksiModule } from './transaksi/transaksi.module';
 import { SharedModule } from './shared/shared.module';
@@ -42,7 +44,8 @@ const routingAplikasi: Routes = [
 	SharedModule,
 	RekeningModule,
 	TransaksiModule,
-	RouterModule.forRoot(routingAplikasi)
+	RouterModule.forRoot(routingAplikasi),
+	DropdownModule.forRoot()
   ],
   providers: [ CekLoginGuard, AuthService ],
   bootstrap: [AppComponent]
