@@ -21,10 +21,12 @@ export class LoginComponent implements OnInit {
   login() : void {
 	  console.log("Username : "+this.username);
 	  console.log("Password : "+this.password);
-	  let hasil = this.authService.login(this.username, this.password);
-	  console.log("Hasil login : "+hasil);
-
-	  this.router.navigate(['/']);
+	  this.authService.login(this.username, this.password)
+	  .then(sukses => {
+		  console.log("Hasil login : "+sukses)
+		  if(sukses){
+			  this.router.navigate(['/']);
+		  }
+	  });
   }
-
 }

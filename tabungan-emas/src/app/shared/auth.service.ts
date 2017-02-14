@@ -13,10 +13,10 @@ export class AuthService {
   }
 
   getUserInfo() : any {
-	  return localStorage.getItem(STORAGE_KEY_AUTH);
+	  return JSON.parse(localStorage.getItem(STORAGE_KEY_AUTH));
   }
 
-  login(username : string, password : string) : boolean {
+  login(username : string, password : string) : Promise<boolean> {
 	  if(username == "endy" && password == "1234") {
 		  let userObject = {
 			  username: "endy",
@@ -28,9 +28,9 @@ export class AuthService {
 			  ]
 		  };
 		  localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(userObject));
-		  return true;
+		  return Promise.resolve(true);
 	  }
-	  return false;
+	  return Promise.resolve(false);
   }
 
   logout() : void {
