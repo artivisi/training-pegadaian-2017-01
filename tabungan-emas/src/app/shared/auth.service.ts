@@ -4,12 +4,11 @@ const STORAGE_KEY_AUTH = "authentication";
 
 @Injectable()
 export class AuthService {
-	
+
   constructor() { }
 
   sudahLogin() : boolean {
 	  let ok = localStorage.getItem(STORAGE_KEY_AUTH) != null;
-	  console.log("Sudah login : "+ok);
 	  return ok;
   }
 
