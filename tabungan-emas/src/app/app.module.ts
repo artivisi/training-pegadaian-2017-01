@@ -6,6 +6,10 @@ import { RouterModule, Routes }   from '@angular/router';
 
 import { RekeningModule } from './rekening/rekening.module';
 import { TransaksiModule } from './transaksi/transaksi.module';
+import { SharedModule } from './shared/shared.module';
+
+import { CekLoginGuard } from './shared/ceklogin';
+import { AuthService } from './shared/auth.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,8 +18,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 
 const routingAplikasi: Routes = [
-	{ path: "about", component: AboutComponent },
-	{ path: "rekening", redirectTo: "/rekening", pathMatch: "full"},
+	{ path: "about", component: AboutComponent, canActivate: [CekLoginGuard] },
+	{ path: "rekening", redirectTo: "/rekening", pathMatch: "full", canActivateChild: [CekLoginGuard]},
 	{ path: "transaksi", redirectTo: "/transaksi", pathMatch: "full"},
 	{ path: "**", component: WelcomeComponent }
 ];
@@ -32,11 +36,12 @@ const routingAplikasi: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+	SharedModule,
 	RekeningModule,
 	TransaksiModule,
 	RouterModule.forRoot(routingAplikasi)
   ],
-  providers: [],
+  providers: [ CekLoginGuard, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
