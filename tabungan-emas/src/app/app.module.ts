@@ -23,7 +23,7 @@ const routingAplikasi: Routes = [
 	{ path: "login", component: LoginComponent },
 	{ path: "about", component: AboutComponent, canActivate: [CekLoginGuard] },
 	{ path: "rekening", redirectTo: "/rekening", pathMatch: "full", canActivateChild: [CekLoginGuard]},
-	{ path: "transaksi", redirectTo: "/transaksi", pathMatch: "full"},
+	{ path: "transaksi", redirectTo: "/transaksi", pathMatch: "full", canActivateChild: [CekLoginGuard]},
 	{ path: "**", component: WelcomeComponent }
 ];
 
