@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes }   from '@angular/router';
 import { JualComponent } from './jual/jual.component';
 import { BeliComponent } from './beli/beli.component';
@@ -15,6 +16,7 @@ const routingTransaksi: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+	FormsModule,
 	RouterModule.forChild(routingTransaksi)
   ],
   declarations: [JualComponent, BeliComponent, HistoryComponent],

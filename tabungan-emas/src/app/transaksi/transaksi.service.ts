@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Penjualan } from './jual/jual.model';
+
 @Injectable()
 export class TransaksiService {
 
@@ -16,6 +18,19 @@ export class TransaksiService {
 		{tanggal: "6 Februari 2017", keterangan: "Pembelian Online", nilai: 10, saldo: 26}
 	  ];
 	  return Promise.resolve(dataTransaksi);
+  }
+
+  getHargaJualEmas(gram : number) : Promise<number> {
+	  return Promise.resolve(gram * 575);
+  }
+
+  getHargaBeliEmas(gram : number) {
+	  return gram * 540;
+  }
+
+  jual(p : Penjualan) : Promise<string> {
+	  console.log("Menyimpan transaksi jual : "+JSON.stringify(p));
+	  return Promise.resolve("success");
   }
 
 }
