@@ -11,13 +11,10 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<div class="btn-group navbar-form navbar-right" dropdown *ngIf="authService.sudahLogin()" >
-				<div class="nav navbar-nav navbar-form navbar-right">
-					<button id="logout" name="logout" class="btn btn-primary" dropdownToggle>
-						<i class="fa fa-sign-out" aria-hidden="true"></i>
-						Halo, {{currentUser().fullname}}
-					</button>
-				</div>
-				<ul dropdownMenu role="menu" aria-labelledby="single-button" *ngIf="authService.sudahLogin()">
+				<button id="currentUserButton" type="button" class="btn btn-primary" dropdownToggle>
+					Halo, {{currentUser().fullname}}
+				</button>
+				<ul dropdownMenu role="menu" aria-labelledby="single-button">
 					<li><a href="#">Konfigurasi</a></li>
 					<li><a href="#">Profil</a></li>
 					<li><a routerLink="about">Informasi</a></li>
