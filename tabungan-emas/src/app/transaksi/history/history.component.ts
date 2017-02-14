@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {TransaksiService} from '../transaksi.service';
+
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  dataTransaksi = [];
+
+  constructor(private transaksiService : TransaksiService) { }
 
   ngOnInit() {
+	  this.transaksiService.getDaftarTransaksi()
+	  .then(hasil => this.dataTransaksi = hasil);
   }
 
 }

@@ -5,6 +5,7 @@
 
 <hr>
 
+<div *ngIf="dataTransaksi">
 <table class="table table-condensed table-striped table-hover">
 	<thead>
 		<tr>
@@ -16,27 +17,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>1 Januari 2017</td>
-			<td>Saldo Awal</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>15</td>
-		</tr>
-		<tr>
-			<td>2 Januari 2017</td>
-			<td>Pembelian</td>
-			<td>2</td>
-			<td>&nbsp;</td>
-			<td>17</td>
-		</tr>
-
-		<tr>
-			<td>3 Januari 2017</td>
-			<td>Penjualan</td>
-			<td>&nbsp;</td>
-			<td>6</td>
-			<td>11</td>
+		<tr *ngFor="let tr of dataTransaksi">
+			<td>{{tr.tanggal}}</td>
+			<td>{{tr.keterangan}}</td>
+			<td> <span *ngIf="tr.nilai > 0"> {{tr.nilai}} </span> </td>
+			<td> <span *ngIf="tr.nilai < 0"> {{tr.nilai * -1}} </span> </td>
+			<td>{{tr.saldo}}</td>
 		</tr>
 	</tbody>
 </table>
@@ -60,3 +46,4 @@
 		</li>
 	</ul>
 </nav>
+</div>

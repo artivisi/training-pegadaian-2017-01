@@ -4,6 +4,7 @@ import { RouterModule, Routes }   from '@angular/router';
 import { JualComponent } from './jual/jual.component';
 import { BeliComponent } from './beli/beli.component';
 import { HistoryComponent } from './history/history.component';
+import { TransaksiService } from './transaksi.service';
 
 const routingTransaksi: Routes = [
 	{ path: "transaksi/jual", component: JualComponent },
@@ -16,6 +17,7 @@ const routingTransaksi: Routes = [
     CommonModule,
 	RouterModule.forChild(routingTransaksi)
   ],
-  declarations: [JualComponent, BeliComponent, HistoryComponent]
+  declarations: [JualComponent, BeliComponent, HistoryComponent],
+  providers: [TransaksiService]
 })
 export class TransaksiModule { }
