@@ -16,6 +16,14 @@ export class HistoryComponent implements OnInit {
   ngOnInit() {
 	  this.transaksiService.getDaftarTransaksi()
 	  .then(hasil => this.dataTransaksi = hasil);
+
+	  /*
+	  .then(prosesHasilnya);
+
+	  var prosesHasilnya = function(hasil) {
+	  	this.dataTransaksi = hasil;
+	  }
+	  */
   }
 
 }
