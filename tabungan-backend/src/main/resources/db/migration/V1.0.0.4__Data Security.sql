@@ -1,8 +1,10 @@
+-- password : u00123
 insert into s_user (id, username, password, email, fullname, active)
-values ('u001', 'user001', 'u00123', 'user001@contoh.com', 'User 001', true);
+values ('u001', 'user001', '$2a$12$yzkFE1p3JLVY9VYITS.JCuLlLz7gsK4oclgrrqZYPFJlZSN.t8MIO', 'user001@contoh.com', 'User 001', true);
 
+-- password : u00123
 insert into s_user (id, username, password, email, fullname, active)
-values ('u002', 'user002', 'u00123', 'user002@contoh.com', 'User 002', true);
+values ('u002', 'user002', '$2a$10$Sg4GEKX27L68l5dSPNMJGOxycYZ6eWaGPZshqSAfKTOZid1hObGny', 'user002@contoh.com', 'User 002', true);
 
 insert into s_user (id, username, password, email, fullname, active)
 values ('u003', 'user003', 'u00123', 'user003@contoh.com', 'User 003', true);
