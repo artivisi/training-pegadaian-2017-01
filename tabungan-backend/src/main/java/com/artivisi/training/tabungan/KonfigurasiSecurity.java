@@ -23,8 +23,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/home", true)
-                .and().logout().permitAll()
-                .logoutSuccessUrl("/home");
+                .and().logout().permitAll();
     }
 
     @Override
