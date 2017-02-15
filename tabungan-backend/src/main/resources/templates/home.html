@@ -9,7 +9,14 @@
         <h1>Aplikasi Backend</h1>
         
         <ul>
-            <li>Nama user : <span th:text="${user.name}">Nama User</span></li>
+            <li>Nama user : <span sec:authentication="name">Nama User</span></li>
+            <li>Ijin akses : <span sec:authentication="principal.authorities">HARGA_EDIT</span></li>
+        </ul>
+        
+        Fitur Aplikasi
+        <ul>
+            <li><a href="/api/user/me">Informasi User</a></li>
+            <li sec:authorize="hasAuthority('HARGA_EDIT')"><a href="/api/harga/">Informasi Harga</a></li>
         </ul>
         
         <form th:action="@{/logout}" method="post">
