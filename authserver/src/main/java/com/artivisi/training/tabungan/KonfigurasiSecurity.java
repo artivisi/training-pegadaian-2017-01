@@ -22,7 +22,6 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/home", true)
                 .and().logout().permitAll();
     }
 
