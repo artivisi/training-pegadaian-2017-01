@@ -56,7 +56,9 @@ export class AuthService {
 				  access_token: token.access_token
 			  };
 			  localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(userObject));
+			  return true;
 		  }
+		  return false;
 	  });
   }
 
