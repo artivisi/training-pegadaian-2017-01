@@ -11,8 +11,7 @@ export class CekLoginGuard implements CanActivate, CanActivateChild {
 
   canActivate() {
     console.log('AuthGuard#canActivate called');
-	let sudahLogin : boolean = this.auth.sudahLogin();
-	if(!sudahLogin) {
+	if(!this.auth.sudahLogin()) {
 		this.router.navigate(['login']);
 		return false;
 	}
