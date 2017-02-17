@@ -10,8 +10,8 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
 
 
-  username: string;
-  password: string;
+  username: string = "user001";
+  password: string = "u00123";
 
   constructor(private authService : AuthService, private router : Router) { }
 
