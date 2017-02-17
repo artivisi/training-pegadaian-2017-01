@@ -1,5 +1,14 @@
 # OAuth 2 dengan Spring #
 
+Beberapa flow grant type yang disediakan:
+
+* Authorization Code
+* Implicit
+* Password
+* Client Credentials
+
+## Authorization Code ##
+
 Cara mengetes flow `authorization-code` :
 
 1. Masuk ke aplikasi `authserver`
@@ -43,3 +52,46 @@ Cara mengetes flow `authorization-code` :
 	![Basic Auth](img/07-basic-auth.png)
 
 	![Hasil Cek Token](img/11-hasil-cek-token.png)
+
+
+## Password ##
+
+Cara setup:
+
+1. Expose `AuthenticationManager` untuk digunakan di OAuth endpoint
+
+	```java
+	@Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+	```
+
+2. Gunakan `AuthenticationManager` di OAuth endpoint
+
+	```java
+	@Autowired
+    @Qualifier("authenticationManagerBean")
+    private AuthenticationManager authenticationManager;
+
+	@Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints
+                .authenticationManager(authenticationManager)
+                .accessTokenConverter(jwtAccessTokenConverter());
+    }
+	```
+
+3. Akses endpoint `oauth/token` dengan client id + secret di Basic Authentication dan username/password di request parameter
+
+
+	![Target URL](img/target-url.png)
+
+	![Request Param](img/request-param.png)
+
+	![Basic Auth](img/basic-auth.png)
+
+	![Hasil](img/hasil-access-token.png)
+
+4. Kita bisa langsung mendapatkan access token
