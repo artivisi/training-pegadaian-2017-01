@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { Http, Headers, URLSearchParams } from '@angular/http';
+
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+
 import 'rxjs/add/operator/toPromise';
 
 const STORAGE_KEY_AUTH = "authentication";
@@ -8,11 +11,12 @@ const STORAGE_KEY_AUTH = "authentication";
 @Injectable()
 export class AuthService {
 
+  jwtHelper: JwtHelper = new JwtHelper();
+
   constructor(private http : Http) { }
 
   sudahLogin() : boolean {
-	  let ok = localStorage.getItem(STORAGE_KEY_AUTH) != null;
-	  return ok;
+	  return tokenNotExpired("access_token");
   }
 
   getUserInfo() : any {
@@ -51,10 +55,14 @@ export class AuthService {
 		  console.log(token);
 		  if(token && token.access_token){
 			  localStorage.setItem("access_token",token.access_token);
+			  let tokenContent = this.jwtHelper.decodeToken(token.access_token);
 			  let userObject = {
 				  username: username,
+				  fullname: tokenContent.user_name,
+				  permissions: tokenContent.authorities,
 				  access_token: token.access_token
 			  };
+			  console.log("permissions", userObject.permissions);
 			  localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(userObject));
 			  return true;
 		  }
@@ -64,6 +72,7 @@ export class AuthService {
 
   logout() : void {
 	  localStorage.removeItem(STORAGE_KEY_AUTH);
+	  localStorage.removeItem("access_token");
   }
 
 }

@@ -2,5 +2,9 @@
   "/oauth/token": {
     "target": "http://localhost:10000",
     "secure": false
-  }
+	},
+	"/api/harga/" : {
+		"target": "http://localhost:8080",
+	    "secure": false
+	}
 }

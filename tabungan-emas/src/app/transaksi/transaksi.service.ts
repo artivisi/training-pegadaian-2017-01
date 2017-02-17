@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-
+import { AuthHttp } from 'angular2-jwt';
 import { Penjualan } from './jual/jual.model';
 
 @Injectable()
 export class TransaksiService {
 
-  constructor() { }
+  constructor(public authHttp: AuthHttp) { }
 
   getDaftarTransaksi() {
 	  console.log("Menjalankan service getDaftarTransaksi");
@@ -21,6 +21,15 @@ export class TransaksiService {
   }
 
   getHargaJualEmas(gram : number) : Promise<number> {
+	  let url = "/api/harga/";
+
+	  this.authHttp.get(url)
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err),
+        () => console.log('Request Complete')
+      );
+
 	  return Promise.resolve(gram * 575);
   }
 
