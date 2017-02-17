@@ -7,10 +7,12 @@ import { BeliComponent } from './beli/beli.component';
 import { HistoryComponent } from './history/history.component';
 import { TransaksiService } from './transaksi.service';
 
+import { CekLoginGuard } from '../shared/ceklogin';
+
 const routingTransaksi: Routes = [
-	{ path: "transaksi/jual", component: JualComponent },
-	{ path: "transaksi/beli", component: BeliComponent },
-	{ path: "transaksi/history", component: HistoryComponent }
+	{ path: "transaksi/jual", component: JualComponent, canActivate: [CekLoginGuard] },
+	{ path: "transaksi/beli", component: BeliComponent, canActivate: [CekLoginGuard] },
+	{ path: "transaksi/history", component: HistoryComponent, canActivate: [CekLoginGuard] }
 ];
 
 @NgModule({
