@@ -30,15 +30,23 @@ export class TransaksiService {
         () => console.log('Request Complete')
       );
 
-	  return Promise.resolve(gram * 575);
+	  return Promise.resolve(gram * 575000);
   }
 
   getHargaBeliEmas(gram : number) {
-	  return gram * 540;
+	  return gram * 540000;
   }
 
   jual(p : Penjualan) : Promise<string> {
+	  p.username = "test";
+
 	  console.log("Menyimpan transaksi jual : "+JSON.stringify(p));
+
+	  let url : string = "/api/jual/";
+	  this.authHttp.post(url, p).toPromise()
+	  .then(hasil => hasil.status)
+	  .catch(error => console.log(error));
+
 	  return Promise.resolve("success");
   }
 
