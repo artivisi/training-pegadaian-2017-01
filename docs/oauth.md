@@ -92,6 +92,6 @@ Cara setup:
 
 	![Basic Auth](img/basic-auth.png)
 
-	![Hasil](img/hasil-access-token.png)
-
 4. Kita bisa langsung mendapatkan access token
+
+	![Hasil](img/hasil-access-token.png)
