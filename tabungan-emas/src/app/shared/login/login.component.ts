@@ -23,10 +23,8 @@ export class LoginComponent implements OnInit {
 	  console.log("Password : "+this.password);
 	  this.authService.login(this.username, this.password)
 	  .then(sukses => {
-		  console.log("Hasil login : "+sukses)
-		  if(sukses){
-			  this.router.navigate(['/']);
-		  }
+		  this.router.navigate(['/']);
+
 	  });
   }
 }
